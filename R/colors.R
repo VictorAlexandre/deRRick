@@ -3,7 +3,7 @@
 #'
 #' This code is inspired by the magnificent \href{https://github.com/karthik/wesanderson} {Wes Anderson package}. 
 #' @param n Number of colors desired. Unfortunately most palettes now only have 4 or 5 colors. But hopefully we'll add more palettes soon. All color schemes are derived from the most excellent Tumblr blog: \href{http://wesandersonpalettes.tumblr.com/}{Wes Anderson Palettes}
-#' @param  name Name of desired palette. Choices are: \code{GrandBudapest}, \code{Moonrise1},  \code{Royal1},  \code{Moonrise2}, \code{Cavalcanti},  \code{Royal2}, \code{GrandBudapest2},  \code{Moonrise3},  \code{Chevalier}, \code{BottleRocket}, \code{darjeeling}, \code{darjeeling2} 
+#' @param  name Name of desired palette. Choices are: \code{Office}, \code{StefansCostumeYoung}, \code{StefansCostumeOld}, \code{HarrysCostume}, \code{BestOf70s}, \code{BestOf80s}, \code{BestOf90s}
 #' @param type Set to continuous if you require a gradient of colors similar to how heat map works.
 #' @export
 #' @keywords colors
@@ -60,7 +60,7 @@ if(n > namelist[which(namelist$movies == name), 2])
 	stop("Number of requested colors greater than what palette can offer")
 
 
-   image(1:n,1,as.matrix(1:n),col= stefan.palette(n,name),
+   image(1:n,1,as.matrix(1:n),col= derrick.palette(n,name),
        xlab=name, ylab = "",xaxt = "n",yaxt = "n", bty = "n")
 
 }
