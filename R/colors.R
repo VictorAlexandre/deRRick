@@ -8,22 +8,23 @@
 #' @export
 #' @keywords colors
 #' @examples 
-#' wes.palette(3, "Office")
-#' wes.palette(3, "HarrysCostume")
-#' wes.palette(5, "BestOf70s")
+#' derrick.palette(3, "Office")
+#' derrick.palette(3, "HarrysCostume")
+#' derrick.palette(5, "BestOf70s")
 #' # You can also request a continuous range of colors
-#' pal <- wes.palette(name = "StefansCostumeYoung", type = "continuous")
+#' pal <- derrick.palette(name = "StefansCostumeYoung", type = "continuous")
 #' image(volcano, col = pal(21))
 
-wes.palette <- function(n, name, type = FALSE) {
+derrick.palette <- function(n, name, type = FALSE) {
 	
-Office <- c("#F1BB7B", "#FD6467", "#5B1A18", "#D67236")
-StefansCostumeYoung <- c("#F3DF6C", "#CEAB07", "#D5D5D3", "#24281A")
-StefansCostumeOld <- c("#899DA4", "#C93312", "#FAEFD1", "#DC863B")
-HarrysCostume <- c("#798E87", "#C27D38", "#CCC591", "#29211F")
-BestOf70s <- c("#D8B70A", "#02401B", "#A2A475", "#81A88D", "#972D15")
-BestOf80s <- c("#9A8822", "#F5CDB4", "#F8AFA8", "#FDDDA0", "#74A089")
-BestOf90s <- c("#E6A0C4", "#C6CDF7", "#D8A499", "#7294D4")
+Office <- c ("#989D7B", "#626A53", "#28593F", "#437E8F", "#886348", "#4B2C14")
+StefansCostumeYoung <- c ("", "", "", "", "", "")
+StefansCostumeOld <- c ("", "", "", "", "", "")
+HarrysCostume <- c ("", "", "", "", "", "")
+BestOf70s <- c ("#DFD2BA", "#B1825A", "#71543F", "#504A37")
+BestOf80s <- c ("", "", "", "", "", "")
+BestOf90s <- c ("", "", "", "", "", "")
+
 
 if(!name %in% namelist$movies)
 	stop("Palette not found.")
@@ -42,16 +43,15 @@ get(name)[1:n]
 }
 
 
-
 #' Display a palette
 #'
 #' @param n Number of colors desired. Unfortunately most palettes now only have 4 or 5 colors. But hopefully we'll add more palettes soon. All color schemes are derived from the most excellent Tumblr blog: \href{http://wesandersonpalettes.tumblr.com/}{Wes Anderson Palettes}
-#' @param  name Name of desired palette. Choices are: \code{GrandBudapest}, \code{Moonrise1},  \code{Royal1},  \code{Moonrise2}, \code{Cavalcanti},  \code{Royal2}, \code{GrandBudapest2},  \code{Moonrise3},  \code{Chevalier} , \code{BottleRocket} , \code{darjeeling}, \code{darjeeling2}
+#' @param  name Name of desired palette. Choices are: \code{Office}, \code{StefansCostumeYoung},  \code{StefansCostumeOld},  \code{HarrysCostume}, \code{BestOf70s},  \code{BestOf80s}, \code{BestOf90s}
 #' @export
 #' @examples \dontrun{
-#'	display.wes.palette(3, "Royal1")
+#'	display.derrick.palette(3, "Office")
 #'}
-display.wes.palette <- function(n, name) {
+display.derrick.palette <- function(n, name) {
 
 if(!name %in% namelist$movies)
 	stop("Palette not found.")
@@ -60,7 +60,7 @@ if(n > namelist[which(namelist$movies == name), 2])
 	stop("Number of requested colors greater than what palette can offer")
 
 
-   image(1:n,1,as.matrix(1:n),col= wes.palette(n,name),
+   image(1:n,1,as.matrix(1:n),col= stefan.palette(n,name),
        xlab=name, ylab = "",xaxt = "n",yaxt = "n", bty = "n")
 
 }
